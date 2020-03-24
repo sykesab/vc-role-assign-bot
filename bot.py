@@ -75,33 +75,5 @@ class MyClient(discord.Client):
             print("ERROR MESSAGE: {0}".format(err))
 
 
-# class Utilities():
-#     async def _create_role_if_not_exists(self, guild, member, channel):
-#         """Create the role for a voice channel if it doesn't exist."""
-#         vc_role = discord.utils.get(roles, name=channel.name)
-#         if vc_role == None:
-#             vc_role = await guild.create_role(name=channel.name, mentionable=True, reason='User {0} joined voice channel {1} and role did not exist.'.format(member.name, channel.name))
-#
-#         return vc_role
-#
-#     async def _remove_role_if_channel_empty(self, guild, member, channel):
-#         """Delete the role if no other users remain in the voice channel."""
-#         if not channel.members:
-#             await vc_role.delete(reason='Last user ({0}) left voice channel {1}.'.format(member.name, channel.name))
-#
-#     async def add_user_to_role(self, guild, member, channel):
-#         """Add a user to a specific voice channel role."""
-#         vc_role = self._create_role_if_not_exists(guild, member, channel)
-#         await member.add_roles(vc_role, reason='User {0} entered voice channel {1}.'.format(member.name, channel), atomic=True)
-#
-#     async def remove_user_from_role(self, guild, member, channel):
-#         """Remove the channel role from the user."""
-#         vc_role = discord.utils.get(member.roles, name=channel.name) # I hope this is never None
-#         await member.remove_roles(vc_role, reason='User {0} left voice channel {1}.'.format(member.name, channel.name))
-#
-#         # Delete the role if no other users are in the voice channel.
-#         self._remove_role_if_channel_empty(guild, member, channel)
-
-
 client = MyClient()
 client.run(os.getenv('VC_ROLE_ASSIGN_TOKEN'))
